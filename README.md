@@ -22,9 +22,13 @@ El treball ha estat realitzat per l'alumne jsabatei
 
 ## Bibliografia
 Aquest exercici es basa majoritàriament en els documents suggerits a l’assignatura de “Tipologia i cicle de vida de les dades”, Bloc 2:
+
 [1] Subirats, L., Pérez, D., Calvo, M. (2019). Introducció al cicle de vida de les dades. Editorial UOC
+
 [2] Subirats, L., Calvo, M. (2019). Web scraping. Editorial UOC.
+
 Addicionalment, s'ha consultat:
+
 [3] Lawson, R. (2015). Web Scraping with Python. Packt Publishing Ltd. Chapter 1. Introduction to Web Scraping
 
 
