@@ -14,7 +14,7 @@ El treball ha estat realitzat per l'alumne jsabatei
 * Pràctica_1_jsabatei_Web_Scraping.pdf: document que descriu la pràctica realitzada.
 * Carpeta csv's: 6 fitxers csv com a resultat de la pràctca:
 
-** Eleccions_locals_Barcelona_20190526_Resultats.csv: Resulats eleccions locals ciutat de Barcelona 26 de maig del 2019
+  * Eleccions_locals_Barcelona_20190526_Resultats.csv: Resulats eleccions locals ciutat de Barcelona 26 de maig del 2019
 
 ** Eleccions_locals_Barcelona_20190526_Candidatures.csv: Llista de candidatures eleccions locals ciutat de Barcelona 26 de maig del 2019
 
