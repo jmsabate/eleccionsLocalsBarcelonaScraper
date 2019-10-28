@@ -15,16 +15,11 @@ El treball ha estat realitzat per l'alumne jsabatei
 * Carpeta csv's: 6 fitxers csv com a resultat de la pràctca:
 
   * Eleccions_locals_Barcelona_20190526_Resultats.csv: Resulats eleccions locals ciutat de Barcelona 26 de maig del 2019
-
-** Eleccions_locals_Barcelona_20190526_Candidatures.csv: Llista de candidatures eleccions locals ciutat de Barcelona 26 de maig del 2019
-
-** Eleccions_locals_Barcelona_20150524_Resultats.csv: Resulats eleccions locals ciutat de Barcelona 24 de maig del 2015
-
-** Eleccions_locals_Barcelona_20150524_Candidatures.csv: Llista de candidatures eleccions locals ciutat de Barcelona 24 de maig del 2015
-
-** Eleccions_locals_Barcelona_20110522_Resultats.csv: Resulats eleccions locals ciutat de Barcelona 22 de maig del 2011
-
-** Eleccions_locals_Barcelona_20110522_Candidatures.csv: Llista de candidatures eleccions locals ciutat de Barcelona 22 de maig del 2011
+  * Eleccions_locals_Barcelona_20190526_Candidatures.csv: Llista de candidatures eleccions locals ciutat de Barcelona 26 de maig del 2019
+  * Eleccions_locals_Barcelona_20150524_Resultats.csv: Resulats eleccions locals ciutat de Barcelona 24 de maig del 2015
+  * Eleccions_locals_Barcelona_20150524_Candidatures.csv: Llista de candidatures eleccions locals ciutat de Barcelona 24 de maig del 2015
+  * Eleccions_locals_Barcelona_20110522_Resultats.csv: Resulats eleccions locals ciutat de Barcelona 22 de maig del 2011
+  * Eleccions_locals_Barcelona_20110522_Candidatures.csv: Llista de candidatures eleccions locals ciutat de Barcelona 22 de maig del 2011
 
 ## Bibliografia
 Aquest exercici es basa majoritàriament en els documents suggerits a l’assignatura de “Tipologia i cicle de vida de les dades”, Bloc 2:
