@@ -33,7 +33,7 @@ El treball ha estat realitzat per l'alumne jsabatei
       * `pguany_sc2.png`       Mapa de segon partit més votat per seccions censals
     * -4- Implantació de les principals candidatures
       * `xxx_barris.png`       Mapa d'implantació de la candidatura xxx (erc, bc, psc, ...) per barris
-      * `xxx_sc.png`           Mapa d'implantació de la candidatura xxx per seccions censals
+      * `xxx_sc.png`           Mapa d'implantació de la candidatura xxx per seccions censals 
 
 ## Bibliografia
 Aquest exercici es basa majoritàriament en els documents suggerits a l’assignatura de “Tipologia i cicle de vida de les dades”, Bloc 2:
