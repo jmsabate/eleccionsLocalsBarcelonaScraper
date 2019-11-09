@@ -24,7 +24,7 @@ from pathlib import Path
 def descarrega_url(url, intents=2):
     try:
         html = requests.get(url)
-        print(html)
+#        print(html)
     except html.status_code as e:
         print ('Error al llegir la pàgina:', e.reason)
         html = None
@@ -35,7 +35,8 @@ def descarrega_url(url, intents=2):
                 exit ("Errors no 500 al carregar la pàgina. S'atura el script")
         else:
             exit ("Error de càrrega després d'intentar-ho dues vegades")
-    pagina = BeautifulSoup (html.content, features="lxml")        
+    pagina = BeautifulSoup (html.content, features="lxml")
+    print ("S'ha llegit la pàgina ", url)        
     return pagina
 
 
@@ -51,7 +52,9 @@ def descarrega_url(url, intents=2):
 # - La relació de candidatures de cada any (3 fitxers)
 # - Els resultats per secció censal de cada any (3 fitxers)
 # ####################################################
-    
+
+print ("Inici del procés Web Scraping de recuperació d'informació numérica de les" +
+       " eleccions local de l'Ajuntament de Barcelona anys 2011, 2015 i 2019")   
 
 # Totes les pàgines tenen la mateixa url arrel amb nom de taula final diferent
 arrel = "https://www.bcn.cat/estadistica/catala/dades/telec/loc/"
@@ -74,6 +77,7 @@ for taula in taules:
 
 # ####################################################
 # PAS 2. Extracció d'informació de les pàgines, noms columnes
+#        Els noms de les columnes estan  una taula, etiqueta td i class = WhadsColVar1
 # ####################################################
 
 nom_columnes = []
@@ -202,7 +206,8 @@ for k in range(6):
 # ####################################################
             
 # Sobserva que la taula de la relació de candidatures de l'any 2011
-# (Variable 1 de nom_columnes[2] i dades_netes[2][<cada fila>])
+# Les pàgines 2011 de candidatures i resultats estan respectivament a nom_columnes[2] i dades_netes[2]
+# (Columna 1 de nom_columnes[2] i també columna 1 dades_netes[2][<cada fila>])
 # és una columna en blanc.  
 # s'esborra la columna de les taules que conformen la relació de candidatures
 # nom_columnes [2] i dades_netes[2]<cada fila>            
@@ -243,6 +248,60 @@ for k in range(6):
         spamwriter.writerow (nom_columnes[k])
         for fila in dades_netes[k]:
             spamwriter.writerow(fila)
+            
+print ("Ha finalitzat el procés Web Scraping de recuperació d'informació numérica de les" +
+       " eleccions local de l'Ajuntament de Barcelona anys 2011, 2015 i 2019")
+
+# ####################################################
+# Recuperació d'imatges
+# ####################################################
+
+# S'observa que la mateixa Web de l'Ajuntament de Barcelona, conté imatges de les 
+# eleccions locals de Barcelona any 2019. Imatges per barris i seccions censals de:
+# -1- Mapes de participació 
+# -2- 1r. partir més votat
+# -3- Segons partit més votat
+# -4- Implantació de les principals candidatures
+
+# Llegir les pàgines (4) amb les imatges desitjades, corresponents als 4 grups anteriors
+# "pagina" serà una llista de 4 elements on cada element és la pàgina recuperada.
+
+print ("Inici procés Web Scraping de recuperació d'imatges de les" +
+       " eleccions local de l'Ajuntament de Barcelona any 2019")            
+            
+def descarrega_imatges (url):
+    img = requests.get (url, stream = True)
+    if img.status_code == 200:
+        aSplit   = url.split("/")
+        path_nom = Path.cwd() / "Estudi Eleccions Locals" / aSplit[len(aSplit)-1]
+        print (path_nom)
+        output = open(path_nom, "wb")
+        for codi in img:
+            output.write (codi)
+        output.close()
+
+
+taules = ["loc19/t311.htm", "loc19/t312.htm", "loc19/t313.htm", "loc19/t314.htm"]
+pagina = []
+for taula in taules:
+    url = arrel + taula
+    pagina.append(descarrega_url (url))
+
+imatges   = []
+for k in range(len(taules)):
+    i = 0
+    for img in pagina[k].findAll("img"):
+        url  = arrel + "loc19/" + img.get("src")
+#        print (url)
+        descarrega_imatges(url)
+        i += 1
+    print ("A la pàgina ", k, " hi ha ", i, "imatges")
+    
+
+print ("Final procés Web Scraping de recuperació d'imatges de les" +
+       " eleccions local de l'Ajuntament de Barcelona any 2019")           
+
+print ("Fi de l'exercici")
 
 # Fi de l'exercici Web Scraping
             
@@ -259,4 +318,18 @@ for k in range(6):
 #          print (row)
 #          i += 1
 #     print (i)
-
+#
+# En quant a les imatges es troben al mateix path, el nom de la imatge segueix la pauta:
+# -1- Mapes de participació 
+#       part_barris.png      Mapa de participació per barris 
+#       part_sc.png          Mapa de participació per seccions censals
+# -2- 1r. partir més votat
+#       pguany_barris.png    Mapa de partit més votat per barris 
+#       pguany_sc.png        Mapa de partit més votat per seccions censals
+# -3- Segon partit més votat
+#       pguany_barris2.png   Mapa de segon partit més votat per barris 
+#       pguany_sc2.png       Mapa de segon partit més votat per seccions censals
+# -4- Implantació de les principals candidatures
+#       xxx_barris.png       Mapa d'implantació de la candidatura xxx (erc, bc, psc, ...) per barris 
+#       xxx_sc.png           Mapa d'implantació de la candidatura xxx per seccions censals
+#
