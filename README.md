@@ -21,7 +21,7 @@ El treball ha estat realitzat per l'alumne jsabatei
   * *Eleccions_locals_Barcelona_20150524_Candidatures.csv*: Llista de candidatures eleccions locals ciutat de Barcelona 24 de maig del 2015
   * *Eleccions_locals_Barcelona_20110522_Resultats.csv*: Resulats eleccions locals ciutat de Barcelona 22 de maig del 2011
   * *Eleccions_locals_Barcelona_20110522_Candidatures.csv*: Llista de candidatures eleccions locals ciutat de Barcelona 22 de maig del 2011
-  * *Carpeta gràfics*: Carpeta amb 18 gràfics relatius als resultats electorals any 2019:
+* *Carpeta gràfics*: Carpeta amb 18 gràfics relatius als resultats electorals any 2019:
     * -1- Mapes de participació
       * `part_barris.png`      Mapa de participació per barris 
       * `part_sc.png`          Mapa de participació per seccions censals
